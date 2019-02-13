@@ -665,6 +665,11 @@ video {
   box-shadow: 0 1px 5px rgba(50,50,50,0.2);
   border-color: transparent;
 }
+.icp-a {
+  color: #fff;
+  display: inline-block;
+  margin: 0 10px;
+}
 .excerpt {
   margin-top: 20px;
 }
