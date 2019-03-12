@@ -571,7 +571,7 @@ video {
 .main,
 .foot {
   margin: 0 auto;
-  width: 700px;
+  width: 768px;
 }
 .head,
 .foot {
@@ -662,7 +662,7 @@ video {
 .reward:hover,
 .comments:hover,
 .post:hover {
-  box-shadow: 0 1px 5px rgba(50,50,50,0.2);
+  box-shadow: rgba(0,0,0,0.12) 0px 1px 6px, rgba(0,0,0,0.12) 0px 1px 4px;
   border-color: transparent;
 }
 .icp-a {
