@@ -1,5 +1,7 @@
+http://ochukai.me/my-second-tattoo/
 http://ochukai.me/svn-branch/
 http://ochukai.me/the-hrdaya/
+http://ochukai.me/my-first-tattoo/
 http://ochukai.me/svn-backup-and-restore/
 http://ochukai.me/flex-shrink/
 http://ochukai.me/nginx-uwsgi-django/
