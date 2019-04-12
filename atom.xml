@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ochukai.me/"/>
-  <updated>2019-04-02T09:15:50.542Z</updated>
+  <updated>2019-04-12T07:40:30.546Z</updated>
   <id>http://ochukai.me/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>我的第二个纹身</title>
+    <title>我的第二个纹身 - 键盘</title>
     <link href="http://ochukai.me//my-second-tattoo/"/>
     <id>http://ochukai.me//my-second-tattoo/</id>
     <published>2019-03-23T05:05:03.000Z</published>
-    <updated>2019-04-02T09:15:50.542Z</updated>
+    <updated>2019-04-12T07:40:30.546Z</updated>
     
     <content type="html"><![CDATA[<p>第二个纹身，这次是在左侧的肚子上，也是巨疼。</p><p>师傅问我为什么总是选肚子，我笑笑不说话，因为我也不知道~</p><p>这次看起来很简单的图案，耗时三个半小时，受罪俩小时。简直生不如死，但是好像我没叫出声~</p><blockquote><p>纹身师傅的手稿</p></blockquote><p><img src="../images/tattoo-keyboard.jpg" alt="纹身师傅的手稿"></p><p>这次还是不放文完之后的图了，肚子太大，影响视觉效果。</p><p>持续健身中。。。。</p>]]></content>
     
@@ -151,9 +151,9 @@
     </summary>
     
     
-      <category term="svn backup" scheme="http://ochukai.me/tags/svn-backup/"/>
-    
       <category term="svn" scheme="http://ochukai.me/tags/svn/"/>
+    
+      <category term="svn backup" scheme="http://ochukai.me/tags/svn-backup/"/>
     
       <category term="svn 备份" scheme="http://ochukai.me/tags/svn-%E5%A4%87%E4%BB%BD/"/>
     
