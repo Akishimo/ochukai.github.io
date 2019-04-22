@@ -45,9 +45,9 @@
     <link href="http://ochukai.me//mathjax-test/"/>
     <id>http://ochukai.me//mathjax-test/</id>
     <published>2019-04-22T06:41:27.000Z</published>
-    <updated>2019-04-22T08:31:39.758Z</updated>
+    <updated>2019-04-22T08:45:49.729Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax basic tutorial and quick reference</a></p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure><p>$$<br>f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \\<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p><h2 id="行内公式-不支持，-谁能帮我忙啊，跪求"><a href="#行内公式-不支持，-谁能帮我忙啊，跪求" class="headerlink" title="行内公式 - 不支持， 谁能帮我忙啊，跪求~"></a>行内公式 - 不支持， 谁能帮我忙啊，跪求~</h2><p><code>$x_mu$</code> $x_mu$</p><p><code>$\sigma$</code> $\sigma$</p><p><code>$x_mu$</code> $x_mu$</p><p><code>$y=ax+b$</code> $y=ax+b$</p><h2 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h2><p><code>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</code><br>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</p><p><code>$$M(\beta^{\ast}(D),D) \subseteq C$$</code><br>$$M(\beta^{\ast}(D),D) \subseteq C$$</p><hr><p>$$ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} $$</p><p>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p><h2 id="自动编号"><a href="#自动编号" class="headerlink" title="自动编号"></a>自动编号</h2><p>$$<br>\begin{equation}<br>\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )<br>\end{equation}<br>$$</p><p>$$<br>\begin{equation}<br>\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))<br>\end{equation}<br>$$</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax basic tutorial and quick reference</a></p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure><p>$$<br>f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \\<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p><h2 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h2><p><code>$x_mu$</code> $x_mu$</p><p><code>$\sigma$</code> $\sigma$</p><p><code>$x_mu$</code> $x_mu$</p><p><code>$y=ax+b$</code> $y=ax+b$</p><h2 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h2><p><code>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</code><br>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</p><p><code>$$M(\beta^{\ast}(D),D) \subseteq C$$</code><br>$$M(\beta^{\ast}(D),D) \subseteq C$$</p><hr><p>$$ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} $$</p><p>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p><h2 id="自动编号"><a href="#自动编号" class="headerlink" title="自动编号"></a>自动编号</h2><p>$$<br>\begin{equation}<br>\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )<br>\end{equation}<br>$$</p><p>$$<br>\begin{equation}<br>\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))<br>\end{equation}<br>$$</p>]]></content>
     
     <summary type="html">
     
@@ -336,9 +336,9 @@
     </summary>
     
     
-      <category term="terminal" scheme="http://ochukai.me/tags/terminal/"/>
-    
       <category term="git bash" scheme="http://ochukai.me/tags/git-bash/"/>
+    
+      <category term="terminal" scheme="http://ochukai.me/tags/terminal/"/>
     
       <category term="配色" scheme="http://ochukai.me/tags/%E9%85%8D%E8%89%B2/"/>
     
@@ -536,9 +536,9 @@
       <category term="Window" scheme="http://ochukai.me/categories/window/"/>
     
     
-      <category term="font" scheme="http://ochukai.me/tags/font/"/>
-    
       <category term="terminal" scheme="http://ochukai.me/tags/terminal/"/>
+    
+      <category term="font" scheme="http://ochukai.me/tags/font/"/>
     
   </entry>
   
