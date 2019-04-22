@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ochukai.me/"/>
-  <updated>2019-04-18T03:01:53.471Z</updated>
+  <updated>2019-04-22T08:09:25.353Z</updated>
   <id>http://ochukai.me/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>❤ 如何支持 MathJax~</title>
+    <link href="http://ochukai.me//mathjax-support-guide/"/>
+    <id>http://ochukai.me//mathjax-support-guide/</id>
+    <published>2019-04-22T07:49:39.000Z</published>
+    <updated>2019-04-22T08:09:25.353Z</updated>
+    
+    <content type="html"><![CDATA[<p>好久好久之前就有一个 issue 提出来要支持 <strong>MathJax</strong>，结果到现在我都没有实现，直到昨天看到有人又要这个，所以我觉得还是写写吧，毕竟不是太复杂的东西。</p><p>是这个 <a href="https://github.com/mathjax/MathJax" target="_blank" rel="noopener">MathJax</a>， 但是这个 repo clone 到本地之后，我发现他有 50m + 的大小，于是找了一个 cdn:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure><p>想要页面支持 MathJax，只要这个页面引入他的 js，然后按照 MathJax 的语法来写公式就 ok 了。</p><h2 id="mathjax-true"><a href="#mathjax-true" class="headerlink" title="mathjax: true"></a>mathjax: true</h2><p>当然作为一个主题，我就帮你们把 js 引入了，你们只要写公式就好了，但是因为 MathJax 的 js 还是挺大的，所以我在页头加了一个属性：<strong>mathjax</strong>，就是来标加，如果当前文章需要 MathJax 的支持，就把 <strong>mathjax</strong> 设置为 <strong>true</strong>。</p><p>就像这样：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: ❤ 如何支持 MathJax~</span><br><span class="line">tags:</span><br><span class="line">  - mathjax</span><br><span class="line">date: 2019-04-22 15:49:39</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br><span class="line"># 文章内容</span><br></pre></td></tr></table></figure><p>其他页面就不用添加这个属性了，自动就不会引入 MathJax 的 js。</p><h2 id="开始写公式"><a href="#开始写公式" class="headerlink" title="开始写公式"></a>开始写公式</h2><p>下面就是写公式了，之前我都没有接触过这个东西，所以随便从网上找了一个</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$\sum_&#123;i=0&#125;^n i^2 = \frac&#123;(n^2+n)(2n+1)&#125;&#123;6&#125;$$</span><br></pre></td></tr></table></figure><blockquote><p>new post -&gt; 复制代码 -&gt; yarn start -&gt; 打开 localhost:4000</p></blockquote><p>发现公式没有出来，于是我又去 bing 查了一下，原来还需要改一个东西，</p><p>大概就在 <code>~/node_modules/marked/lib/marked.js</code> 的第 464 行，如果找不到，就搜索 escape。</p><p><img src="/images/mathjax-marked.png" alt="修改代码"></p><p>然后照图，把 <strong>escape</strong>， <strong>em</strong> 修改为下面的值:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inline = &#123;</span><br><span class="line">  <span class="comment">// escape: /^\\([\\`*&#123;&#125;\[\]()#+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br><span class="line">  autolink: <span class="regexp">/^&lt;(scheme:[^\s\x00-\x1f&lt;&gt;]*|email)&gt;/</span>,</span><br><span class="line">  url: noop,</span><br><span class="line">  tag: <span class="regexp">/^&lt;!--[\s\S]*?--&gt;|^&lt;\/?[a-zA-Z0-9\-]+(?:"[^"]*"|'[^']*'|\s[^&lt;'"&gt;\/\s]*)*?\/?&gt;/</span>,</span><br><span class="line">  link: <span class="regexp">/^!?\[(inside)\]\(href\)/</span>,</span><br><span class="line">  reflink: <span class="regexp">/^!?\[(inside)\]\s*\[([^\]]*)\]/</span>,</span><br><span class="line">  nolink: <span class="regexp">/^!?\[((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\]/</span>,</span><br><span class="line">  strong: <span class="regexp">/^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/</span>,</span><br><span class="line">  <span class="comment">// em: /^_([^\s_](?:[^_]|__)+?[^\s_])_\b|^\*((?:\*\*|[^*])+?)\*(?!\*)/,</span></span><br><span class="line">  em:<span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br><span class="line">  code: <span class="regexp">/^(`+)\s*([\s\S]*?[^`]?)\s*\1(?!`)/</span>,</span><br><span class="line">  br: <span class="regexp">/^ &#123;2,&#125;\n(?!\s*$)/</span>,</span><br><span class="line">  del: noop,</span><br><span class="line">  text: <span class="regexp">/^[\s\S]+?(?=[\\&lt;!\[`*]|\b_| &#123;2,&#125;\n|$)/</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>然后再次 yarn start，发现公式出来了~</p><p>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;好久好久之前就有一个 issue 提出来要支持 &lt;strong&gt;MathJax&lt;/strong&gt;，结果到现在我都没有实现，直到昨天看到有人又要这个，所以我觉得还是写写吧，毕竟不是太复杂的东西。&lt;/p&gt;
+&lt;p&gt;是这个 &lt;a href=&quot;https://github.com/m
+      
+    
+    </summary>
+    
+    
+      <category term="mathjax" scheme="http://ochukai.me/tags/mathjax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mathjax Test</title>
+    <link href="http://ochukai.me//mathjax-test/"/>
+    <id>http://ochukai.me//mathjax-test/</id>
+    <published>2019-04-22T06:41:27.000Z</published>
+    <updated>2019-04-22T08:31:39.758Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax basic tutorial and quick reference</a></p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure><p>$$<br>f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \\<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p><h2 id="行内公式-不支持，-谁能帮我忙啊，跪求"><a href="#行内公式-不支持，-谁能帮我忙啊，跪求" class="headerlink" title="行内公式 - 不支持， 谁能帮我忙啊，跪求~"></a>行内公式 - 不支持， 谁能帮我忙啊，跪求~</h2><p><code>$x_mu$</code> $x_mu$</p><p><code>$\sigma$</code> $\sigma$</p><p><code>$x_mu$</code> $x_mu$</p><p><code>$y=ax+b$</code> $y=ax+b$</p><h2 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h2><p><code>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</code><br>$$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$$</p><p><code>$$M(\beta^{\ast}(D),D) \subseteq C$$</code><br>$$M(\beta^{\ast}(D),D) \subseteq C$$</p><hr><p>$$ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} $$</p><p>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p><h2 id="自动编号"><a href="#自动编号" class="headerlink" title="自动编号"></a>自动编号</h2><p>$$<br>\begin{equation}<br>\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )<br>\end{equation}<br>$$</p><p>$$<br>\begin{equation}<br>\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))<br>\end{equation}<br>$$</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference&quot; target=&quot;_blank&quot; rel=
+      
+    
+    </summary>
+    
+    
+      <category term="mathjax" scheme="http://ochukai.me/tags/mathjax/"/>
+    
+  </entry>
   
   <entry>
     <title>🐷用 js 判断某元素进入视窗区域以及图片的懒加载~</title>
@@ -523,58 +571,6 @@
       <category term="dva" scheme="http://ochukai.me/tags/dva/"/>
     
       <category term="react" scheme="http://ochukai.me/tags/react/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>删除 .svn 文件夹</title>
-    <link href="http://ochukai.me//remove-svn-folder/"/>
-    <id>http://ochukai.me//remove-svn-folder/</id>
-    <published>2017-01-22T02:09:47.000Z</published>
-    <updated>2017-01-22T02:30:05.297Z</updated>
-    
-    <content type="html"><![CDATA[<p>新建 remove-svn.bat, 放到项目根目录执行就好了。（本来以为 svn 会提供这样的功能，结果还要自己写，😒）</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> on</span><br><span class="line">@<span class="keyword">for</span> /r . <span class="variable">%%a</span> <span class="keyword">in</span> (.) <span class="keyword">do</span> @<span class="keyword">if</span> <span class="keyword">exist</span> "<span class="variable">%%a</span>\.svn" <span class="built_in">rd</span> /s /q "<span class="variable">%%a</span>\.svn"</span><br><span class="line">@<span class="built_in">pause</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;新建 remove-svn.bat, 放到项目根目录执行就好了。（本来以为 svn 会提供这样的功能，结果还要自己写，😒）&lt;/p&gt;
-&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-      
-    
-    </summary>
-    
-      <category term="SVN" scheme="http://ochukai.me/categories/svn/"/>
-    
-    
-      <category term="svn" scheme="http://ochukai.me/tags/svn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Textarea 的高度自动增长</title>
-    <link href="http://ochukai.me//textarea-height-auto-increase/"/>
-    <id>http://ochukai.me//textarea-height-auto-increase/</id>
-    <published>2017-01-20T03:48:10.000Z</published>
-    <updated>2017-04-14T01:57:00.874Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，textarea 的高度是定死的，rows 指定了之后，高度就不变了，内容多了之后会出现滚动条，这样的设定在大部分的场景下面是够用的， 但是有时就会很丑陋（废话😊）。</p><p>我们都知道 HTML 的元素都有一个 scrollHeight 这个属性，就是当该元素出现滚动条的时候，内容的高度。</p><p>那就方便了：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".weui-textarea"</span>).on(<span class="string">'input propertychange keyup'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).height(<span class="keyword">this</span>.scrollHeight);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>这样就实现了高度自动增加的 Textarea，但当我试着删掉几行，想让它自动降低高度的时候不禁菊花一紧，他不动~</p><p>这就尴尬,,ԾㅂԾ,,了，于是我就找了另外一种方法:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.weui-textarea'</span>).on(<span class="string">'input keyup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 尝试滚动一段距离，如果没有滚动条，scrollTop 还是 0</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.scrollTop == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.scrollTop = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="keyword">this</span>.scrollTop == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.rows &gt; minRows) &#123;</span><br><span class="line">      <span class="keyword">this</span>.rows--;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.scrollTop = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.rows &lt; maxRows) &#123;</span><br><span class="line">      <span class="keyword">this</span>.style.overflowY = <span class="string">"hidden"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.scrollTop &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.rows++;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="keyword">this</span>.scrollTop &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.rows &lt; maxRows) &#123;</span><br><span class="line">      <span class="keyword">this</span>.rows++;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.scrollTop == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.scrollTop = <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.style.overflowY = <span class="string">"auto"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>这是一个例子~ （换行试试~😏）</p><p><textarea class="weui-textarea" placeholder="这是一个例子~" rows="3" style="resize: none;width: 100%;border: 1px solid pink; border-radius:4px; padding: 5px;font-size:14px;"></textarea></p><script>  $(function () {    var minRows = 3;    var maxRows = 10;    $('.weui-textarea').on('input keyup', function () {      // 尝试滚动一段距离，如果没有滚动条，scrollTop 还是 0      if (this.scrollTop == 0) {        this.scrollTop = 1;      }      while (this.scrollTop == 0) {        if (this.rows > minRows) {          this.rows--;        } else {          break;        }        this.scrollTop = 1;        if (this.rows < maxRows) {          this.style.overflowY = "hidden";        }        if (this.scrollTop > 0) {          this.rows++;          break;        }      }      while (this.scrollTop > 0) {        if (this.rows < maxRows) {          this.rows++;          if (this.scrollTop == 0) {            this.scrollTop = 1;          }        } else {          this.style.overflowY = "auto";          break;        }      }    });  });</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一般情况下，textarea 的高度是定死的，rows 指定了之后，高度就不变了，内容多了之后会出现滚动条，这样的设定在大部分的场景下面是够用的， 但是有时就会很丑陋（废话😊）。&lt;/p&gt;
-&lt;p&gt;我们都知道 HTML 的元素都有一个 scrollHeight 这个属性，就是
-      
-    
-    </summary>
-    
-    
-      <category term="textarea" scheme="http://ochukai.me/tags/textarea/"/>
-    
-      <category term="html" scheme="http://ochukai.me/tags/html/"/>
     
   </entry>
   
