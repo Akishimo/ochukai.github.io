@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ochukai.me/my-third-tattoo/</loc>
+    
+    <lastmod>2019-08-01T10:28:07.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ochukai.me/my-first-tattoo/</loc>
+    
+    <lastmod>2019-08-01T09:57:52.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ochukai.me/my-second-tattoo/</loc>
+    
+    <lastmod>2019-08-01T09:55:27.193Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ochukai.me/qian-zi-wen/</loc>
     
     <lastmod>2019-04-30T08:33:33.749Z</lastmod>
@@ -26,20 +47,6 @@
     <loc>http://ochukai.me/js-is-in-sight/</loc>
     
     <lastmod>2019-04-18T03:01:53.471Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ochukai.me/my-second-tattoo/</loc>
-    
-    <lastmod>2019-04-12T07:40:30.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ochukai.me/my-first-tattoo/</loc>
-    
-    <lastmod>2019-04-02T09:15:54.325Z</lastmod>
     
   </url>
   
@@ -443,13 +450,6 @@
   </url>
   
   <url>
-    <loc>http://ochukai.me/for-in-scss/</loc>
-    
-    <lastmod>2016-11-22T01:40:09.736Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ochukai.me/battleship-girls/</loc>
     
     <lastmod>2016-11-22T01:40:09.736Z</lastmod>
@@ -464,6 +464,13 @@
   </url>
   
   <url>
+    <loc>http://ochukai.me/for-in-scss/</loc>
+    
+    <lastmod>2016-11-22T01:40:09.736Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ochukai.me/formdata-in-action/</loc>
     
     <lastmod>2016-11-22T01:40:09.736Z</lastmod>
@@ -471,14 +478,14 @@
   </url>
   
   <url>
-    <loc>http://ochukai.me/README.html</loc>
+    <loc>http://ochukai.me/404.html</loc>
     
     <lastmod>2016-11-22T01:40:09.720Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ochukai.me/404.html</loc>
+    <loc>http://ochukai.me/README.html</loc>
     
     <lastmod>2016-11-22T01:40:09.720Z</lastmod>
     
